@@ -3,19 +3,6 @@
 #include<cmath>
 #include <unordered_map>
 using namespace std;
-// ---------------------------------------------------------------
-// Task 1: Define a CountSort Class
-// ---------------------------------------------------------------
-// Below is a class for counting sort.
-//
-// It has a private vector "list" that holds the list to sort.
-// All member functions should operate on "list".
-//
-// It has several public member functions.
-// 1. SetList: assign a vector (to sort) to "list".
-// 2. GetList: return the current "list"
-// 3. ListMax: return the maximum value in "list"
-// 4. SortList: sort "list" based on the counting sort algorithm.
 class CountSort {
 public:
     void SetList(vector<int> InputList);
@@ -61,31 +48,6 @@ void CountSort::SortList() {
         list[i] = output[i];
     }
 }
-// ..............................................................
-// ---------------------------------------------------------------
-// ---------------------------------------------------------------
-// Task 2: Define a RadixSort Class
-// ---------------------------------------------------------------
-// Below is a class for RadixSort.
-//
-// It has a private vector "list" that holds the list to sort.
-// All member functions should operate on "list".
-//
-// It has several public member functions.
-// 1. SetList: assign a vector (to sort) to "list".
-// 2. GetList: return the current "list"
-// 3. GetNumBit: return the maximum number of bits of any element in "list"
-//    Example: if "list"={35,27,9}, then return 2
-//    Example: if "list"={352,22027,19}, then return 5
-// 4. GetList_ByBit (int IdxBit): return the "IdxBit"_th LSB's in "list"
-//    Example: if "list"={35,27,9} & IdxBit=1, then return a list {5,7,9}
-//    Example: if "list"={35,27,9} & IdxBit=2, then return a list {3,2,0}
-//    The returned list should be stored in an integer vector (not string or other)
-// 5. SortList_byBit (int IdxBit): sort "list" based on the IdxBit_th LSB in "list"
-//    Need to call counting sort to do the sorting.
-//    If there is a tie between two elements, preserve their order
-//    Example: if "list"={42,22,7} & IdxBit=1, then return 42,22,7
-//    Example: if "list"={42,22,7} & IdxBit=2, then return 7,22,42
 class RadixSort {
 public:
     void SetList(vector<int> InputList);
@@ -147,28 +109,13 @@ void RadixSort::SortList_byBit(int IdxBit) {
     }
     SetList(temp);
 }
-// ..............................................................
-// ---------------------------------------------------------------
 int main()
 {
-    // The main function is given to you.
-    // We first input the testing mode, IdxBit and an arbitrary number of non-
-    //repeated integers into a vector.
-    // The input of this list will terminate when we give an non-integer input
-    //e.g., letter 'a'.
-    // Then, we pass this vector to the CountSort and RadixSort objects.
-    // Then, we test your implemented member functions.
     vector<int> InputList;
     vector<int> TestList;
     int  mode, IdxBit;
     CountSort x;
     RadixSort y;
-    // takie inputs
-//    cin >> mode >> IdxBit;
-//    while (cin >> temp) {
-//        InputList.push_back(temp);
-//    }
-    // pass inputs to class objects
     mode = 7;
     IdxBit = 2;
     InputList = { 233, 425, 22023, 9071, 42};
